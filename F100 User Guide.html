@@ -1,0 +1,2033 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0055)https://atelierrobin.net/docs/userGuides/3.0/guide.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<!-- This is a comment -->
+  
+  
+  <meta name="Author" content="AtelierRobin">
+
+
+  
+  
+  <meta name="Description" content="Programmable frequency generator. Programmable square wave generator with USB connectivity">
+
+
+  
+  
+  <meta name="KeyWords" content="programmable frequency generator,Portable programmable frequency generator,programmable function generator,frequency generator,function generator">
+
+
+  
+  
+  <meta name="Classification" content="electronics,frequency,science,physics"><title>F100 User Guide</title></head><body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);" alink="#ff0000" link="#ff0000" vlink="#ff0000">
+<br>
+
+
+<div align="center"><font size="+0"><b>
+F100 User Guide</b></font></div>
+
+
+<div align="center">&nbsp;</div>
+
+
+<div align="center">&nbsp;</div>
+
+
+<div align="center">&nbsp;</div>
+
+
+<div align="left">
+
+
+
+<b>Caution!!</b>&nbsp; DO NOT TOUCH the generator while you are in direct 
+  contact with a high voltage <b>plasma tube</b><br>
+
+
+<blockquote>
+  <p>If you any part of your body is in contact with a high voltage plasma tube 
+  such as those found on EMEM type devices, DO NOT touch the generator while you 
+  are in contact with the plasma tube. Those tubes run at thousands of volts (up 
+  to 48000 volts for some units) and this can damage the generator and is not 
+  covered by the warranty. Before touching the generator (including the keypad), 
+  make sure you are not in contact with the tube and discharge yourself of any 
+  static electricity buildup by touching a large metallic object.</p>
+</blockquote>
+
+
+  <p><font size="+0"><b>
+  <br>
+<br>
+</b></font></p></div>
+
+
+<b><font size="+1">Table of Contents<br>
+</font></b>
+<ol style="list-style-type: upper-roman;">
+
+
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#intro">Introduction</a> </li>
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#examples">Simple Examples</a> </li>
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#GUI">PC Graphical User Interface</a> </li>
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#F100GUI">Standalone User Interface</a> </li>
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#progLang">Programming Commands Description</a></li>
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#command">PC Command Line/Batch Mode Operation</a></li>
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#installDev">Installing the Generator</a> </li>
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#installSW">Installing Software</a> </li>
+  <li><a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#errors">Error Messages/troubleshooting</a> </li>
+</ol>
+<!----------------------------- Introduction ---------------------------- -->
+
+
+
+
+
+<span style="font-weight: bold;"><br>
+</span><a name="intro"></a><br>
+
+
+<b><font size="+1">I Introduction</font><br>
+<br>
+</b>&nbsp;&nbsp;&nbsp; The F100 software controls the F100 series of
+frequency generators (F125/65/170). It lets you input or create a program file. It
+processes the program file, checks it for errors, converts the program
+commands into a sequence of instructions to produce the desired
+frequencies on the device. It also lets you save, load and edit program
+files with the graphical user interface.&nbsp; On the PC, the program file is a
+standard ASCII text file that contains commands as
+described in the Example or Programming Commands sections bellow. You
+can use F100 to edit those files<br>
+
+
+<br>
+This user guide fully describes how to program F100 series function
+generators.&nbsp;
+We suggest you start with the examples in the next section and once you
+are familiar with the simple examples and how to run them, move on to
+the "Programming Commands Description" section for a detailed
+explanation of all the available programming&nbsp; commands. The F100
+software is updated regularly with new features. To keep up to date on
+software/hardware releases&nbsp;
+please read the news section of our web site:
+http://www.atelierrobin.net and join the Atelier Robin group here :
+http://groups.yahoo.com/group/AtelierRobin.<br>
+<!----------------------------- Examples  ---------------------------- -->
+
+
+
+<br>
+
+
+<a name="examples"></a><br>
+
+
+<font size="+1"><b>II Simple Examples</b></font> <br>
+
+
+<br>
+
+
+&nbsp;&nbsp;&nbsp; Each example consists of one or more program
+commands. To run the examples, type
+the commands ,exactly as shown, in a blank program window and select
+the&nbsp; file-&gt;Run&nbsp; menu item or type Alt-r. To clear the
+program window of any previous content select the
+file-&gt;new menu item. The examples should get you started quickly for
+simple
+frequency generation but for a full description of each command and its
+arguments,
+please see the <a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#progLang">Programming Commands Description</a>
+section.
+<br>
+
+
+<br>
+
+
+How do I run 727 HZ: <code><br>
+</code>
+<blockquote><code>727 </code><br>
+</blockquote>
+
+
+How do I run 727, 800 , 880 and 1500 HZ each for 120 seconds: <code><br>
+</code>
+<blockquote><code>dwell 120 </code><code><br>
+727 </code><br>
+  <code>800 </code><br>
+  <code>880 </code><br>
+  <code>1500 </code><br>
+</blockquote>
+
+
+How do I run 900 HZ for 60 seconds and 1000 HZ for 5 minutes: <br>
+
+
+<blockquote><code>dwell 60 </code><br>
+  <code>900 </code><br>
+  <code>dwell 300 </code><br>
+  <code>1000 </code><br>
+</blockquote>
+
+
+How do I sweep from 120 to 1000 HZ in 1 HZ steps that run half a second
+each? <br>
+
+
+<blockquote><code>dwell 0.5 </code><br>
+  <code>sweep 120 1000 1 </code><br>
+</blockquote>
+
+
+How do I run 10000 HZ for 30 seconds, pulsed at 4 HZ: <br>
+
+
+<blockquote><code>dwell 30 </code><br>
+  <code>pulse 4 50 </code><br>
+  <code>10000 </code><br>
+</blockquote>
+
+
+How do I run 770 HZ for 3.5 minutes with a 80% duty cycle: <code><br>
+</code>
+<blockquote><code>dwell 210</code><br>
+  <code></code><code>duty 80</code><br>
+  <code></code><code>770 </code><br>
+</blockquote>
+
+
+How do I run 727 HZ&nbsp; gating/modulating&nbsp; a 2.4 MHZ frequency
+(carrier)<br>
+
+
+<blockquote><code>program b<br>
+backfreq a 2400000 50<br>
+727</code><br>
+</blockquote>
+
+
+How do I run a sweep from 600 to 700 HZ gating/modulating a 1.1 MHZ
+(carrier)<br>
+
+
+<blockquote><code>program b<br>
+dwell 10<br>
+backfreq a 1100000 50<br>
+sweep 600 700 1</code><br>
+</blockquote>
+
+
+How do I place comments in my programs: <br>
+
+
+<blockquote><code>#Any character(s) following a pound sign is a
+comment </code><br>
+  <code></code></blockquote>
+
+
+<code></code><br>
+<!----------------------------- PC GUI ---------------------------- -->
+
+
+
+
+
+<a name="GUI"></a><br>
+
+
+<font size="+1"><b>III PC Graphical User Interface</b> </font><br>
+
+
+<br>
+
+
+&nbsp;&nbsp;&nbsp; The PC F100 GUI (Graphical User Interface) is
+composed of a top menu row and the remaining space is occupied by the
+program window in white and status window in black. The
+program window is where you type or load programs to be run or saved in
+permanent
+storage. Some menu items have an equivalent "hot key" combination that
+you can use to
+invoke them. If a menu item has a hot key, it is specified to the right
+of the menu
+item. For example, Run can be invoked with Alt-r on MS-Windows.
+<br>
+
+
+<br>
+
+
+<div align="center">File Menu Items<br>
+</div>
+
+
+<center>
+<table style="width: 95%;" border="1" cellpadding="2" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+    <tr>
+      <td style="vertical-align: top;">New<br>
+      </td>
+      <td valign="top">Alt-n<br>
+      </td>
+      <td style="vertical-align: top;">Clear the program
+window and start
+a new program</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Open<br>
+      </td>
+      <td valign="top">Alt-o<br>
+      </td>
+      <td style="vertical-align: top;">Open an existing program file
+from permanent
+storage </td>
+    </tr>
+    <tr>
+      <td valign="top">Save<br>
+      </td>
+      <td valign="top">Alt-s<br>
+      </td>
+      <td valign="top">Save your program file for
+future reuse or
+editing. </td>
+    </tr>
+    <tr>
+      <td valign="top">Save As<br>
+      </td>
+      <td valign="top">Alt-a<br>
+      </td>
+      <td valign="top">Save your program file,
+specifying a new file
+name. </td>
+    </tr>
+    <tr>
+      <td valign="top">Run<br>
+      </td>
+      <td valign="top">Alt-r<br>
+      </td>
+      <td valign="top">Check the current program for
+errors and send to
+the device to produce frequencies. If syntax errors exists, the error and line
+number are reported on the PC screen and no frequencies are run. The PC screen 
+is updated while the program runs. <br>
+</td>
+    </tr>
+    
+    <tr>
+      <td valign="top">Run Stand-alone<br>
+      </td>
+      <td valign="top"> <br>
+      </td>
+      <td valign="top">Send the opened program to the generator and run stand-alone, 
+      without PC interaction. Look for syntax errors and frequency information on the generator LCD.
+      </td>
+    </tr>
+    
+    <tr>
+      <td valign="top">Stop<br>
+      </td>
+      <td valign="top">Alt-t<br>
+      </td>
+      <td valign="top"> Stop program execution</td>
+    </tr>
+    <tr>
+      <td valign="top">Pause<br>
+      </td>
+      <td valign="top">Alt-p<br>
+      </td>
+      <td valign="top">Pause/continue program
+execution. Click "Pause"
+to pause the currently running program. Click "Pause" again to continue
+program execution where it was last paused. There is no frequency
+output while a program is paused. </td>
+    </tr>
+    <tr>
+      <td valign="top">Hold<br>
+      </td>
+      <td valign="top">Alt-h<br>
+      </td>
+      <td valign="top">Hold the currently running
+frequency until
+"Hold" is clicked again. An arrow appears on the right of the frequency on the LCD display while a frequency is held.<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">Skip<br>
+      </td>
+      <td valign="top">Alt-k<br>
+      </td>
+      <td valign="top">Skip currently running
+frequency. Click once to
+skip the current frequency and move on to the next frequency in the
+sequence.</td>
+    </tr>
+    <tr>
+      <td valign="top">Copy to FGen<br>
+      </td>
+      <td valign="top"> <br>
+      </td>
+      <td style="vertical-align: top;">Copy
+file(s) to the generator permanent storage. File name extensions will
+be removed. File names must be 32 characters or less. The generator can
+store up to 1500 files with a cumulative size of up to about 1.5 MB. If
+a file is named autorun, it will be run automatically when the generator
+is turned on. Turn off any RF generating equipment while copying files
+to the generator and DO NOT INTERRUPT THIS PROCESS UNTIL IT IS
+COMPLETE. Doing so could corrupt the program files already stored on
+the generator.</td>
+    </tr>
+   <tr>
+      <td valign="top">Delete autorun<br>
+      </td>
+      <td valign="top"> <br>
+      </td>
+      <td valign="top">Delete autorun file on generator. This  prevents the generator
+      from automatically running the autorun file at powerup</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<div align="center">Tools Menu Items<br>
+</div>
+
+<table style="background-color: rgb(255, 255, 255); width: 95%;" border="1" cellpadding="2" cellspacing="0">
+  <caption><br>
+  </caption> <tbody>
+
+    <tr>
+      <td bgcolor="#cccccc" valign="top">Upgrade firmware<br>
+      </td>
+      <td bgcolor="#cccccc" valign="top"><br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(204, 204, 204);">Upgrade generator firmware. See <a href="https://atelierrobin.net/docs/userGuides/3.0/guide.html#firmwareUG">instruction</a> bellow.</td>
+    </tr>
+    <tr>
+      <td bgcolor="#cccccc" valign="top">Device info<br>
+      </td>
+      <td bgcolor="#cccccc" valign="top">Alt-i<br>
+      </td>
+      <td bgcolor="#cccccc" valign="top">Prints various information about the generator</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</center>
+
+
+<br>
+
+
+<br>
+<!----------------------------- Standalone UI ---------------------------- -->
+
+
+
+
+
+
+<a name="F100GUI"></a><br>
+
+
+<font size="+1"><b>IV Standalone&nbsp; F100 User Interface</b></font>
+<br>
+
+
+<br>
+
+
+This section describes the standalone user interface of our generators. Menu items and key functions are explained.<br>
+
+<br><span style="font-weight: bold;">
+
+
+
+Main menu items</span>.
+<blockquote>The main menu is accessed by touching the menu key and touching the up and 
+down arrows to scroll the menu items. Touch the enter key to select a menu item. While scrolling a menu, 
+at any time you can touch the menu key once more to cancel and get out of a menu.</blockquote>
+
+
+
+
+<blockquote>
+Open File<br>
+Select a program to open from the list of files stored on the generator (see the copy to FGen command in 
+the PC F100 software for more information on copying program files to the generator). 
+You can scroll the list using the up and down arrow. You can also use
+the keypad numbers to go up an down the list: 0= top of the list, 1=10% down, 2=20% down ... 
+8=80% down, 9=90% down the list. Touch enter to select a program file to open.<br>
+  <br>
+NewFile<br>
+Clear the program memory and start a new empty program. You then need to use the edit key to start editing a new program.<br>
+  <br>
+Save File<br>
+Save the current program to flash.<br>
+  <br>
+Save File As<br>
+Save the current program under a user specified file name. The file name can be up to 16 numeric characters.<br></blockquote>
+
+
+
+<blockquote>
+Delete File<br>Select a file to delete from the list of
+program files stored on the generator. You can scroll the list using the up and
+down arrow. You can also use
+the keypad numbers to go up an down the list: 0= top of the list, 1=10%
+down, 2=20% down ... 8=80% down, 90% down the list.
+Tap enter to select a file to delete.<br>
+  <br>
+Delete All Files<br>
+To delete all program files stored on the generator.<br></blockquote>
+
+
+
+<blockquote>
+About<br>
+Displays the firmware version number and our web site address where you can download software updates.<br><br></blockquote><span style="font-weight: bold;">
+
+
+
+Keys used to run and control a running program</span>
+
+<blockquote>Run<br>The run key has two purposes: press run to start
+running the currently opened program. Press run again to stop the
+running program. While a program is running, the currently running
+frequency is displayed on the LCD panel if the dwell per step is&nbsp;
+at least 1/10 second. If the dwell per step is less than 1/10 second,
+the display will only show "fast changing HZ" .&nbsp;&nbsp; While
+running, the estimated remaining time for the program is displayed
+except in the following cases: the program contains repeat or goto
+commands or the&nbsp; minimum dwell encountered so far is&nbsp; less
+than 20ms. In those exceptions, the remaining time cannot be estimated
+accurately&nbsp; therefore the elapsed time will be displayed instead.<br>
+ </blockquote>
+
+
+
+<blockquote>Down arrow<br>
+Pressing the down arrow while a program is running will cause the
+program to skip to the next command/frequency in the running program.</blockquote>
+
+
+
+<blockquote>Hold<br>
+Pressing hold while a program is running will cause the generator to
+keep on running the currently running frequency until hold is pressed
+again. While a frequency is held, an arrow appears on the left of the frequency on the LCD display.<br>
+</blockquote>
+
+
+
+<blockquote>Pause<br>
+Pressing pause while a program is running will cause the generator to
+pause the currently running program until pause is pressed again.<br>
+  <br>
+</blockquote><span style="font-weight: bold;">Editing programs from the keypad</span><br>
+<br>
+<div style="margin-left: 40px;">Lines are edited one at a time in the
+program editor. Each line is composed of a single command or a single
+frequency. You cannot have more than one frequency per line in the
+standalone editor. If&nbsp; the program you are editing was first
+created on a PC and has more than one frequency per line, you will not
+be able to edit those frequency lines from the keypad but you can
+delete or replace them with new line(s). As a general rule, when
+writing program files on the PC, make sure you have only one frequency
+per line in your programs if you plan to edit them from the keypad.
+Changes you make while editing a program&nbsp; are not saved in flash
+memory until you exit edit mode and select "File Save" from the main
+menu.&nbsp; If you don't save your changes, they will be in effect only
+until the generator is turned off.&nbsp;We will start with&nbsp; a
+description of the various keys used for editing and then show an
+example. <br>
+</div>
+<br>
+<div style="margin-left: 40px;"><span style="font-weight: bold;">Edit</span><br>
+To start/end&nbsp; program edit mode, under this mode, you can use the
+up/down arrows&nbsp; and the enter key to select a program line to
+edit. Touch edit once to enter edit mode, touch it again when you are
+done editing the program to exit edit mode. You need to exit edit mode
+before you can use the run and menu keys.&nbsp; Do not forget to use
+"File Save" in the main menu if you want to make your changes permanent.<br>
+<br>
+<span style="font-weight: bold;">Enter</span><br>
+While in edit mode (see edit key), use the enter key to select the
+current line for editing. Then&nbsp; you can use the up/down arrows to
+scroll the list of possible commands and touch enter again to select
+the desired command for the current line. If the command selected
+requires parameters, you are prompted for each parameter in turn. Type
+the value for the parameter. When typing a value, you can use the
+numeric and backspace (bksp)&nbsp; keys&nbsp; to type the value and the
+enter key when you are done.<br>
+<br>
+<span style="font-weight: bold;">Delete</span><br>
+When in edit mode (see edit key), use the delete key to delete the
+current line. You cannot undo a delete so make sure you really want to
+delete the current line before you touch delete.&nbsp; Programs are not
+saved in flash memory until you exit edit mode and select "File Save"
+from the main menu. So if you made a mistake and want to discard all
+changes you made to the program, you can open it again from the main
+menu.<br>
+<br>
+<span style="font-weight: bold;">Add</span><br>
+This key adds a new line immediately after the current line and makes
+this new line the current line. To add a line before line 1, touch the
+up arrow until you see "Top of File" and then touch "add".<br>
+<br>
+<span style="font-weight: bold;">Editing example</span>:<br>
+In this example, we will add a single line containing "duty 75"&nbsp;
+right after the 2nd line&nbsp; in a program called "myprog" stored on
+the generator. At the beginning, the program looks like this: <br>
+<br>
+<div style="margin-left: 40px;">dwell 100<br>
+backfreq 2 1000000 50<br>
+727<br>
+<br>
+</div>
+1) Open the file called "myprog" using the menu key and "File Open".
+Once you have opened the file, the LCD will show "Current file -&gt;
+myprog"<br>
+2) Enter edit mode by touching "edit" once. The LCD will show the
+current line ( line 1) of the program:&nbsp; "line 1/3:&nbsp; dwell
+100".<br>
+3) Touch the down arrow once to scroll down to line 2 .<br>
+4) Touch the "add" key to add a&nbsp;&nbsp; line right after the
+current line 2. The LCD will now show the current empty line 3/4 .<br>
+5) Touch "enter" to edit the current line 3<br>
+6) Touch the up arrow until you scroll up to the "duty" command and then select it by touching "enter".<br>
+7) The LCD will now prompt you for the first parameter of the duty
+command: "duty value". Enter "75" and then touch the "enter" key<br>
+8) The LCD now displays the current line : "line 3/4: duty 75"<br>
+9) You are done editing. Touch the edit key to exit edit mode<br>
+10) Save your changes using the menu key and "File Save"<br>
+11) The program now looks like this:<br>
+<br>
+<div style="margin-left: 40px;">dwell 100<br>
+backfreq 2 1000000 50<br>
+duty 75<br>
+727<br>
+</div>
+</div>
+
+
+
+
+
+
+<!----------------------------- Prog Commands ---------------------------- -->
+
+
+
+
+
+<a name="progLang"></a><br>
+
+
+<font size="+1"><b>V Programming Commands Description&nbsp; (Common to
+both the PC desktop and standalone versions) </b></font><br>
+
+
+<br>
+
+
+Each command and its arguments are described here.
+Simple examples are also given. Examples are displayed in tables with
+the commands on the left and a description on the right. The
+description is only for your information and is not required when
+running the actual commands. Some examples have comments in them. Any
+character that
+appears after a pound "#" sign is not part of the program and not
+necessary. It is
+only there to explain the command.<br>
+
+
+&nbsp;&nbsp;&nbsp; <br>
+
+
+All commands are composed of a
+command word followed by arguments. The only
+exception to this rule is the command to run specific frequencies. To
+run
+frequencies, simply type the individual frequencies&nbsp;
+alone on a line. <br>
+
+
+<br>
+
+
+The following are all valid frequency commands: <br>
+
+
+<blockquote>
+  <table style="width: 913px; height: 132px;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 20%; vertical-align: top;"><code>10 </code></td>
+        <td style="vertical-align: top;"><code># run 10 HZ</code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>1000.5 </code></td>
+        <td valign="top"><code># run 1000.5 HZ</code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>0.8 </code></td>
+        <td valign="top"><code># run .8 HZ</code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>727<br>
+880 </code></td>
+        <td valign="top"><code># run 727 HZ and 880 HZ</code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><br>
+</td>
+        <td valign="top">#&nbsp; note: if you want to be able to edit files from the keypad, you cannot have more than one frequency per text line<br>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</blockquote>
+
+
+
+
+The remaining commands are:
+<br>
+
+
+<br>
+
+
+<b>backfreq c f d<br>
+</b>
+<blockquote>Start running the specified frequency in the background on
+the specified channel. <br>
+  <br>
+The generator has 2 or 3 channels but at any given moment, one is in
+program mode while the other(s) are in background mode. By default, channel
+a is in program mode and channel b,c are in background mode. This can be
+changed with the "program" command described later. When a frequency is
+running in background mode, it runs non stop until the next program or
+backfreq command issued for the same channel. Frequencies running in
+the background are not affected by the dwell or duty commands. The
+backfreq command starts the frequency on the specified channel&nbsp;
+and program execution immediately continues to the next statement in
+sequence while the frequency continues to run. This is different from
+the command described above to run specific frequencies for a specific
+duration. It is common to use the backfreq command to run a high speed
+frequency (carrier)&nbsp; in the background on channel a for example
+while the commands
+sweep, converge or fuzz are used to run a slower
+(modulating) frequency on channel b. This command is also used to turn
+a background
+frequency&nbsp; off as: "backfreq c 0 0" where c is the channel.<br>
+  <br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp; c: channel a,b,c,d,e,f or 1,2,3,4,5,6<br>
+&nbsp;&nbsp;&nbsp; f:&nbsp; frequency in HZ<br>
+&nbsp;&nbsp;&nbsp; d: duty cycle in percentage<br>
+  <br>
+Examples:<br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; white-space: nowrap; width: 32%;"><code>dwell 180<br>
+program b<br>
+backfreq a 3000000 50<br>
+727<br>
+        </code></td>
+        <td style="vertical-align: top;"><code>#<br>
+# See program command bellow<br>
+# Run 3 MHZ,50% duty cycle in the background on chan a<br>
+# 727&nbsp; run on chan b, modulating the 3 MHZ<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap" valign="top"><code>dwell .5<br>
+program b<br>
+backfreq a 2400000 50<br>
+sweep 1000 2000 1<br>
+        </code></td>
+        <td valign="top"><code>#<br>
+# See program command bellow<br>
+# Run 2.4 MHZ,50% duty cycle in the background on chan a<br>
+# Run a sweep on channel b gating/modulating the 2.4 MHZ <br>
+# frequency running on channel a<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap" valign="top"><code>dwell 100<br>
+program b<br>
+backfreq a 500000 60<br>
+10<br>
+backfreq a 0 0<br>
+        </code></td>
+        <td valign="top"><code>#<br>
+#<br>
+# Start 500 KHZ on channel a with 60% duty cycle<br>
+# Run 10 HZ for 100 seconds&nbsp; on channel b<br>
+# Turn off the background frequency on chan a<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Note: Backfreq cannot be used on the channel currently being
+programmed. To use backfreq on the current program channel, use the
+program command to assign a different program channel before using
+backfreq on this channel. For example:<br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 20%;"><code>backfreq a 1000000 50<br>
+        </code></td>
+        <td valign="top"><code># This will produce an error because
+channel a <br>
+# is the default program channel. See next example <br>
+# to avoid this error<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>program b<br>
+backfreq a 1000000 50<br>
+        </code></td>
+        <td valign="top"><code># This assigns channel b to be in
+program mode<br>
+# This will start 1 MHZ in the background on channel a<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Note: The backfreq command requires a duty value but some channels (like channel c) have
+a fixed duty cycle. In such a case the duty is always set to 50 regardless of the value 
+specified. See the specifications for your generator for the features of each channel.<br>
+  
+
+  <br>
+</blockquote>
+
+
+<b>cdwell c</b> <br>
+
+
+<blockquote>Sets the default dwell value in total number of cycles (see
+dwell command to set dwell in seconds). The cdwell is the number of
+cycles the requested frequency will be generated. The cdwell value
+specified will be applied to any subsequent frequency in the program
+file up to the next dwell or cdwell instruction. <br>
+  <br>
+Examples: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 20%; vertical-align: top;"><code>cdwell 100<br>
+10<br>
+        </code> </td>
+        <td valign="top"><code># Run frequencies
+for 100 cycles<br>
+# This runs 10 HZ for 100 cycles or 100/10=10
+seconds<br>
+        </code> </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Note: Most users are more familiar with setting dwell in seconds. The
+dwell command can be used for that. The command cdwell is another way
+to specify dwell time that varies according to the frequency generated.
+This is useful when running sweeps that span a wide frequency band. For
+example:<br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 30%; vertical-align: top;"> <code>cdwell 100<br>
+sweep 10 1000 1<br>
+        </code></td>
+        <td valign="top"><code># In this case, during the sweep, the
+dwell time would vary <br>
+# from 10 seconds at 10 HZ to .1 seconds at 1000 HZ<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+
+<br>
+
+
+<b>converge r s</b> <br>
+
+
+<blockquote>Useful if you are not certain of the exact frequency to
+produce but want to produce frequencies in the neighborhood of a set of
+known frequencies. <br>
+  <br>
+Similar to the fuzz command except that frequencies
+are run below and above the center frequency alternating with each
+step. How wide the sweeps are is specified with the "r" argument in two
+different ways <br>
+  <br>
+In the first way, r is the number of hertz below and
+above the frequency. Each frequency f in the program between this
+statement and the next converge or fuzz command will produce
+frequencies f-r to f+r with step s and alternating above and below the
+center frequency at every step. <br>
+  <br>
+In the second way, r is a percentage.
+The sweep will be from f-(r/100*f) to f+(r/100*f) with steps s. To use
+this command, you must add a "%" immediately after the number. <br>
+  <br>
+For
+multiple frequencies, converge only needs to be specified once, before
+the list of frequencies. <br>
+  <br>
+Converge can be turned off with the command:
+converge 0 0 <br>
+  <br>
+Examples: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 20%;"><code> dwell 11<br>
+converge 5 1<br>
+727<br>
+        </code></td>
+        <td valign="top"><code># is equivalent
+to
+running in this order: <br>
+# 722, 732, 723, 731, 724, <br>
+# 730, 725, 729, 726,
+728, <br>
+# 727 for 1 second each<br>
+#<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code> dwell 18<br>
+converge 2% .5<br>
+100 <br>
+        </code></td>
+        <td valign="top"><code># is
+equivalent to
+running: 98, 102, <br>
+# 98.5, 101.5, 99, 101, 99.5<br>
+# 100.5 100 for 2
+seconds each<br>
+#<br>
+        </code> </td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>converge 0 0<br>
+        </code></td>
+        <td valign="top"><code># turns off converge for the following <br>
+# frequency commands </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Note: When using the converge command, the dwell
+time is computed by dividing the default dwell time by the number of
+steps in the fuzz. For example:&nbsp;<table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 20%;"><code>dwell 100<br>
+converge 5 1<br>
+100<br>
+        </code> </td>
+        <td valign="top"><code># Sets default
+dwell to 100
+seconds<br>
+# Converge has 11
+steps:95,105,96,104,97,103,98,102,99,101,100 <br>
+# Each frequency will
+run for dwell/11=9.09 seconds<br>
+        </code> </td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+
+<br>
+
+
+<b>duty d</b><br>
+
+
+<blockquote>Sets the duty for the main frequency. The duty is the on
+time
+versus cycle time of the main frequency pulse :(on time/cycle
+time)*100. <br>
+  <br>
+Argument units: d in percentage <br>
+  <br>
+Examples: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 20%;"><code>duty 50 </code></td>
+        <td><code># 50% on,
+50% off</code></td>
+      </tr>
+      <tr>
+        <td><code>duty 10 </code></td>
+        <td><code># 10% on, 90% off </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Note that the software will translate
+the requested duty to a value that the device can produce. The
+generator specifications indicate what range of duty cycle it can
+produce on each channel. Some channels, like channel c, have a fixed duty cycle. 
+In that case, the duty cycle command is ignored.<br>
+</blockquote>
+
+
+<br>
+
+
+<b>dwell s</b> <br>
+
+
+<blockquote>Sets the default dwell value. The dwell is the length of
+time
+the requested frequency will be generated. The dwell value specified
+will be applied to any subsequent frequency in the program file up to
+the next dwell or cdwell instruction. <br>
+  <br>
+Argument units: s in seconds <br>
+Range: s: 0.0 to 20000000.0 <br>
+  <br>
+Examples: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 20%; vertical-align: top;"><code>dwell 120 </code></td>
+        <td valign="top"><code># Run for 2 minutes</code></td>
+      </tr>
+      <tr>
+        <td valign="top"><code>dwell 0.5 </code></td>
+        <td valign="top"><code># Run for half a second</code></td>
+      </tr>
+      <tr>
+        <td valign="top"><code>dwell .75 </code></td>
+        <td valign="top"><code># Run for 3/4 second </code></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+
+<br>
+
+
+<b>goto l </b><br>
+
+
+<blockquote>Causes program execution to jump to the command immediately
+following the label "l". "l" must be defined somewhere in the program
+with the "label" command. This allows looping in a program. See the
+"label" command for examples. "l" must be a string of alphanumeric
+characters only. <br>
+</blockquote>
+
+
+<br>
+
+
+<b>exit</b> <br>
+
+
+<blockquote>Causes immediate termination of the program, skipping any
+lines
+after the exit command <br>
+  <br>
+</blockquote>
+
+
+<b>fuzz r s</b> <br>
+
+
+<blockquote>Useful if you are not certain of the exact frequency to
+produce but want to produce frequencies in the neighborhood of a set of
+known frequencies.<br>
+  <br>
+Similar to the sweep command but can more easily be
+added to the beginning of an existing series of frequencies to run
+sweeps centered around them. How wide the sweeps are is specified with
+the "r" argument in two different ways.<br>
+  <br>
+In the first way, r is the
+number of hertz above and below the frequency. Each frequency f in the
+program between this statement and the next fuzz command will be
+treated as a sweep from f-r to f+r with step s. <br>
+  <br>
+In the second way, r is
+a percentage. The sweep will be from f-(r/100*f) to f+(r/100*f) with
+steps s. To use this command, you must add a "%" immediately after the
+number. <br>
+  <br>
+Fuzz can be turned off with the command: fuzz 0 0 <br>
+  <br>
+Examples: <code></code><br>
+<table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 20%; vertical-align: top;"><code>fuzz 10 1 <br>
+727<br>
+880<br>
+        </code> </td>
+        <td valign="top"><code>#&nbsp; Is equivalent to 2 sweep
+commands:<br>
+#&nbsp; sweep 717
+737
+1<br>
+#&nbsp; sweep 870 890 1, <br>
+        </code> </td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>fuzz 5% .5 <br>
+100<br>
+1000 <br>
+        </code> </td>
+        <td valign="top"><code># Is equivalent to
+these sweep commands:<br>
+# sweep 95 105 .5<br>
+# sweep 950 1050 .5<br>
+        </code> </td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>fuzz 0 0 <br>
+        </code> </td>
+        <td valign="top"><code> # Turns off fuzz for the following frequency
+commands</code> </td>
+      </tr>
+    </tbody>
+  </table>
+  <code></code><br>
+Note:
+When using the fuzz command, the dwell time is computed by dividing the
+default dwell time by the number of steps in the fuzz. For example: &nbsp;<table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 20%; vertical-align: top;"><code>dwell 100 <br>
+fuzz 5 1 <br>
+100<br>
+        </code> </td>
+        <td valign="top"><code># Sets default dwell to 100 seconds .
+fuzz has 11 <br>
+# steps:95,96,97,98,99,100,101,102,103,104,105&nbsp; <br>
+# Frequencies 95 to 105 will be run for dwell/11=9.09 seconds each.</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <code> </code><br>
+</blockquote>
+
+
+<b>label l</b><br>
+
+
+<blockquote>Defines a label that can be used with the "goto" command.
+This
+allows looping and jumping over sections of a program. When used as an
+argument to the "goto" command, program execution will jump from the
+location of the goto to the command immediately following this label
+command. <br>
+  <br>
+Example1:<code> <br>
+  </code>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 20%;"><code>dwell .5<br>
+        </code><code>label loop <br>
+        </code><code>727<br>
+780<br>
+        </code><code>goto loop<br>
+        </code></td>
+        <td valign="top"><code>#<br>
+#<br>
+#<br>
+        </code><code> #<br>
+# At this
+point program execution will jump back&nbsp; to the "727"<br>
+# command. This
+looping will go on until the user issues a&nbsp;
+"stop"<br>
+# command in the GUI or&nbsp; kills (ctrl-c) the program in command mode.<br>
+# The frequency output
+will alternate between 727 and 780 HZ every <br>
+# half a&nbsp; second<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <code><br>
+  </code>Example2: <br>
+  <code> </code>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 20%;"><code>goto l<br>
+10<br>
+20<br>
+label l<br>
+30<br>
+40<br>
+        </code> </td>
+        <td valign="top"><code># At this point, program
+execution will jump to the "30" <br>
+# frequency line, skipping the 10 and 20
+lines.<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <code></code><code><br>
+  </code></blockquote>
+
+
+
+
+<b>offset o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>(Not available on F110.)<br>
+
+
+<blockquote>Adjusts the offset. By default, offset is fully positive
+(above 0 volt). This command lets you adjust the offset to fully
+positive (DC) or centered at 0 Volts (AC) .<br>
+  <br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp; o: + - or a percentage<br>
+  <br>
+For compatibility with our previous generators, the value can be a percentage but
+will be converted using this rule: less than or equal to 50 will generate AC, 
+greater than 50 will generate DC. A + sign will generate DC and a - sign will generate AC. <br>
+</blockquote>
+
+
+
+
+<blockquote>Examples:<table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 20%;"><code>offset +<br>
+        </code></td>
+        <td valign="top"><code># Set offset to fully positive (above 0
+volt), <br>
+# this is the default<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>offset -<br>
+        </code></td>
+        <td valign="top"><code># Set offset to AC<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>offset 50<br>
+        </code></td>
+        <td style="vertical-align: top;"><code># Set offset to AC<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</blockquote>
+
+
+<b>output p1 p2<br>
+<br>
+</b>
+<div style="margin-left: 40px;">Select which channel(s) go to which output BNC connector.&nbsp; <br>
+<br>
+Arguments:<br>
+&nbsp;&nbsp; p1: Controls port 1. A&nbsp; string made of 1s or 0s , one
+for each channel. A 1 indicate channel is on, a 0 indicates channel is
+off<br>
+&nbsp;&nbsp; p2: Controls port 2. A&nbsp; string made of 1s or 0s , one
+for each channel. A 1 indicate channel is on, a 0 indicates channel is
+off<br>
+<br>
+Examples:<br>
+
+  <table style="height: 68px; width: 95%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 20%;"><code>output 111 111<br>
+        </code></td>
+        <td style="vertical-align: top;"><code># Default setting, output channels ABC(123) to both outputs.<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>output 001 110<br>
+        </code></td>
+        <td valign="top"><code># output channel c(3) to port 1 and channels ab(12) to port 2<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>output 11 00<br>
+        </code></td>
+        <td valign="top"><code># output channels ab(12) to port 1 and nothing (0 volts) on port 2<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</div>
+
+
+<b>pause s</b> <br>
+<br>
+<div style="margin-left: 40px;">Pause execution of the program for the specified amount of
+time
+in seconds. No frequency is produced while the program is paused. <br>
+</div>
+<blockquote>
+Argument units: s in seconds <br>
+  <br>
+Examples: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 20%;"><code>pause 1 </code></td>
+        <td><code># Pause for one second</code></td>
+      </tr>
+      <tr>
+        <td><code>pause 2.5 </code></td>
+        <td><code># Pause for 2 and a half seconds</code></td>
+      </tr>
+      <tr>
+        <td><code>pause 0.5 </code></td>
+        <td><code># Pause for half a
+second</code></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+
+<br>
+
+
+<b>print This is a message </b><br>
+
+
+<blockquote>This command is not yet available on the F125/165. 
+Print a message on the screen. Anything after
+the print command up to the end of line will be printed on the screen.
+This is useful for putting out messages between frequency sets in your
+program. When running in GUI mode, you might want to put a pause
+command immediately after the print command to make sure the message
+stays on the screen for a brief period of time. <br>
+  <br>
+Examples: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;"><code>print My
+first seep will start in 5 seconds <br>
+        </code><code>pause 5 <br>
+        </code><code>sweep 10 1000 1 <br>
+        </code><code>print My
+second sweep will start in 10 seconds <br>
+        </code><code>pause 10 <br>
+        </code><code>sweep 1001 2000 1 </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</blockquote>
+
+
+<b>program c<br>
+</b>
+<blockquote>Defines which channel is to be programmed by the sweep,
+fuzz, converge and frequency listings. By default, channel a is the one
+being programmed by those commands. The "program" command can be used
+as many times as you want in a program to switch between channels. <br>
+  <br>
+Argument: <br>
+&nbsp;&nbsp;&nbsp; c: channel a,b,c,d,e,f or 1,2,3,4,5,6<br>
+</blockquote>
+
+
+<blockquote>Examples: <br>
+  <table style="width: 95%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 25%;"><code>program b<br>
+20, 10000<br>
+        </code></td>
+        <td valign="top"><code>#<br>
+        </code><code># 20 and 10000 hz will run on channel b<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="25%"><code>program
+b <br>
+        </code><code>backfreq a 1500000<br>
+        </code><code>sweep 700 750 1 </code><br>
+        </td>
+        <td valign="top"><code></code><code># Run a 1.5 MHZ frequency
+on channel a in the background<br>
+        </code><code></code><code># Sweep will run on channel b
+gating/modulating a higher<br>
+        </code><code># frequency (1.5 MHZ) running on channel a</code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="25%"><code>program b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br>
+        </code><code>900</code><code><br>
+        </code><code>program
+a<br>
+        </code><code>sweep 10000 11000 1</code><code><br>
+        </code></td>
+        <td valign="top"><code>#<br>
+        </code><code></code><code># 900 HZ will run on channel b<br>
+        </code><code>#<br>
+        </code><code></code><code># This sweep will run on channel a
+while nothing runs on channel b</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <code></code><code></code><code></code><code></code><code></code><code></code><code></code><br>
+Note: The generator has 2 or more channels but at any given moment, one is in
+program mode while the others are in background mode. By default, channel
+a is in program mode and channel b,c are in background mode. The "program"
+command lets you put a channel in program mode. See the backfreq
+command for a more complete description of&nbsp; the program and
+background mode.<br>
+</blockquote>
+
+
+<br>
+
+
+<b>pulse f d </b><br>
+
+
+<blockquote>Runs a frequency in the background on a channel not being
+programmed&nbsp; Pulsing is a signal
+applied to the programmed frequency. In digital terms, if the programmed
+frequency&nbsp; =&nbsp;
+F, the pulse frequency = P and the output of the device = OUT, then OUT
+= F
+AND P . This command is also used to turn pulsing off as: "pulse 0
+0".&nbsp; This command is similar to the backfreq frequency except that
+it&nbsp; automatically selects the channel to run the background
+frequency on. If channel a is the current program channel, pulse will
+run on channel b, if channel b or c is the current program channel, pulse 
+will run on channel a.<br>
+  <br>
+Argument units:<br>
+  <br>
+f in Hz <br>
+d in percentage on <br>
+  <br>
+Examples: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 20%; vertical-align: top;"><code>pulse 4 50 </code></td>
+        <td valign="top"><code># Pulse at 4hz, 50% duty</code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>pulse 5000
+10 </code></td>
+        <td valign="top"><code># Pulse at 5khz, 10% duty</code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>pulse 0 0 </code></td>
+        <td valign="top"><code># Turn pulsing off</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Note: Pulse is
+off by default <br>
+<br>
+</blockquote>
+
+
+
+
+<b>repeat&nbsp; n <br>
+end repeat<br>
+</b>
+<blockquote>Repeat one or more commands a specified number of times in
+a loop.&nbsp; Any commands between the "repeat n" and "end repeat"
+commands will be repeated n times in a loop. You can also have&nbsp;
+repeat loops&nbsp; nested inside other repeat loops. Repeat loop scan
+be nested up to 25 levels deep.<br>
+  <br>
+Examples: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="width: 30%; vertical-align: top;"><code>repeat 4<br>
+&nbsp; 100<br>
+&nbsp; 200<br>
+end repeat<br>
+        </code> </td>
+        <td valign="top"><code><br>
+# will run 100,200,100,200,100,200,100,200<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="30%"><code>repeat 2<br>
+&nbsp; 1<br>
+&nbsp; 2<br>
+&nbsp; repeat 2<br>
+&nbsp;&nbsp;&nbsp; 3<br>
+&nbsp;&nbsp;&nbsp; 4<br>
+&nbsp; end repeat<br>
+end repeat <br>
+        </code></td>
+        <td valign="top"><code># will produce 1,2,3,4,3,4,1,2,3,4,3,4
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="30%"> <code>repeat 3<br>
+&nbsp; sweep 100 2000 1<br>
+end repeat<br>
+repeat 2<br>
+&nbsp; sweep 2000 3000 1<br>
+end repeat<br>
+        </code></td>
+        <td valign="top"><code># will run 3 sweeps from 100 to 2000 HZ followed<br>
+# by 2 sweeps from 2000 to 3000 HZ<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  Repeat in combination with the label/goto commands are very powerful
+commands that allow virtually unlimited combination/loop/sequences to
+be programmed.<br>
+  <br>
+</blockquote>
+
+
+
+
+<b>sweep f1 f2 s</b> <br>
+
+
+<blockquote>Will output every frequency between f1 and f2 using a
+step size defined by s. The dwell time for each frequency step
+corresponds to the current dwell time set by the last dwell command or
+the default dwell (180 seconds) if there is none. <br>
+  <br>
+Argument units:
+f1,f2,step in Hz <br>
+  <br>
+Example: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 30%;"><code>dwell .5 <br>
+sweep 1000 1010 .1 </code></td>
+        <td valign="top"><code># those two
+commands will produce frequencies 1000.0, <br>
+# 1000.1, 1000.2 ...1009.9,
+1010.0 each for <br>
+# half a second </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Note: Different Fxxx series device have
+different limits on the step size of frequency they can produce. The
+program allows you to ask for any frequency step size but it will
+adjust the requested frequency to the closest frequency your device can
+produce. Read your device technical specifications for its frequency
+step size. <br>
+  <br>
+For dwell times greater or equal to half a second, the
+requested frequency is displayed
+while running. <br>
+  <br>
+CAUTION: If you specify a step size smaller than your
+device is capable to produce, two or more consecutive steps could end
+up producing the same frequency each for the specified dwell time. Keep
+that in mind if in the context of your application it is important not
+to exceed a specific dwell time for one single frequency. In such a
+case, it is better to use steps at least twice the step size of your
+device to avoid duplicate frequencies. <br>
+</blockquote>
+
+
+<br>
+
+
+<b>vbackfreq c m b d</b><br>
+<blockquote>
+Sets a variable background&nbsp; frequency based on the main
+frequency. See "backfreq" command for a description of the background
+frequency.
+This allows the background frequency to vary based on the program&nbsp;
+frequency
+being produced. The arguments m and b represent the m,b values in a
+linear equation of background frequency vs program&nbsp; frequency: <br>
+  <br>
+&nbsp;&nbsp;&nbsp; backfreq = m *
+(program frequency) + b . <br>
+  <br>
+Argument d is the background frequency duty cycle in
+percentage. When running frequencies, if the computed background&nbsp;
+frequency
+is &lt; 0, the background frequency will be turned off.<br>
+  <br>
+Argument units: <br>
+&nbsp;&nbsp;&nbsp; d in percentage on/off <br>
+  <br>
+For example, if you want a carrier&nbsp; frequency to always be 1000
+times the program frequency&nbsp; you would
+use the commands:<br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 30%;"><code>program b<br>
+vbackfreq a 1000 0 50<br>
+727<br>
+680<br>
+        </code></td>
+        <td valign="top"><code># programmed frequencies should run on
+slower channel b<br>
+# background (carrier) frequency should be 1000 * programmed frequency<br>
+# will run 727 HZ modulating a 727 KHZ carrier<br>
+# will run 680 HZ modulating a 680 KHZ carrier<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Note: vbackfreq cannot be used on the channel currently being
+programmed. To use vbackfreq on the current program channel, use the
+program command to assign a different program channel before using
+vbackfreq on this channel. For example:<br>
+</blockquote>
+
+
+<blockquote>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; width: 20%;"><code>vbackfreq a 1000000 50<br>
+        </code></td>
+        <td valign="top"><code># This will produce an error because
+channel a <br>
+# is the default program channel. See next example <br>
+# to avoid this error<br>
+        </code></td>
+      </tr>
+      <tr>
+        <td valign="top" width="20%"><code>program b<br>
+vbackfreq a 1000 50<br>
+        </code></td>
+        <td valign="top"><code># This assigns channel b to be in
+program mode<br>
+# background frequencies will run on channel a<br>
+        </code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</blockquote>
+
+
+
+
+<b>vduty f1 d1 f2 d2</b> <br>
+
+
+<blockquote>Sets a variable duty value for the main frequency.
+See "duty" command for a definition of duty. This allows the duty to
+vary depending of the main frequency being produced. The arguments
+f1,d1,f2,d2 represent two points on a linear equation of duty (d) vs
+frequency (f). Think of a linear equation y=mx+b where y=duty and
+x=frequency. <br>
+  <br>
+Argument units:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; f1,f2 in Hz <br>
+&nbsp;&nbsp;&nbsp; d1,d2 in percentage on/off <br>
+  <br>
+Range:<br>
+&nbsp;&nbsp;&nbsp; f1 cannot equal f2 <br>
+  <br>
+For example. If at 10 hz you want the duty to
+be 20% and at 3000 Hz you want the duty to be 70%, you only need to
+specify those two sets of data and the software will extrapolate the
+duty values for any other frequency based on the straight line linking
+those two points on a graph. The command would be: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td><code>vduty 10 20 3000 70</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+Another example: <br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td><code>vduty 10.0 90.0 100000 20.0</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+</blockquote>
+
+
+<b>vpulse m b d</b> <br>
+
+
+<blockquote>Sets a variable pulse frequency based on the main
+frequency. See "pulse" command for a description of pulsing/gating.
+This allows the pulse frequency to vary based on the main frequency
+being produced. The arguments m and b represent the m,b values in a
+linear equation of pulse frequency vs main frequency: <br>
+  <br>
+&nbsp;&nbsp;&nbsp; pulse freq = m *
+(main frequency) + b . <br>
+  <br>
+Argument d is the pulse frequency duty cycle in
+percentage. When running frequencies, if the computed pulse frequency
+is &lt; 0, pulsing will be turned off.<br>
+  <br>
+Argument units: <br>
+&nbsp;&nbsp;&nbsp; d in percentage on/off <br>
+  <br>
+For example, if you want the pulse frequency to always be one
+third the main frequency and the pulse duty cycle set at 50% you would
+use the command:<br>
+  <table style="width: 100%;" border="1" cellpadding="2" cellspacing="0">
+    <tbody>
+      <tr>
+        <td><code>vpulse 0.33 0 50</code></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+<!----------------------------- Batch mode ---------------------------- -->
+
+ <br>
+
+
+ <a name="installDev"></a><br>
+
+
+<font size="+1"><b>VII Installing the Generator</b></font><br>
+
+
+<br>
+
+
+Your frequency generator has the following&nbsp; connectors/switches: <br>
+
+
+<br>
+
+
+<center>
+<table style="width: 95%;" border="1" cellpadding="2" cellspacing="0">
+  <tbody>
+  <tr>
+
+            <td style="vertical-align: top;">Rear<br></td>
+ 
+            <td valign="top">
+            <ul>
+              <li>on/off switch</li>
+	    <li>16-18 Volt AC 1 Amp, 2.1mm power connector</li>
+              <li>USB connector</li>
+              <li>BNC output 1 (I): fixed amplitude , 5V TTL</li>
+              <li>BNC output 2 (II): amplified 0-13VDC or 0-26Vpp AC</li>
+              <li>Amplitude (volume) adjust knob for BNC output 2 (II)</li>
+            </ul>
+            </td>
+ 
+    </tr>
+  </tbody>
+</table>
+</center>
+
+
+<br>
+
+
+Amplitude control on the F125/165/170:<br>
+
+
+<blockquote>The amplitude (volume) &nbsp; knob  controls the voltage level on output 2 (II). This is the output connector closest to the knob. It has a range of 0 to
+13V in DC mode and 0 to 26 Vpp in AC mode. Voltage increases when you turn the knob clockwise<p>&nbsp;</p>
+</blockquote>
+
+
+
+<p>
+
+
+
+<b>Caution</b>&nbsp; DO NOT TOUCH the generator while you are in direct contact 
+with a high voltage <b>plasma tube</b><br>
+
+
+</p>
+
+
+<blockquote>
+  <p>If you any part of your body is in contact with a high voltage plasma tube 
+  such as those found on EMEM type devices, DO NOT touch the generator while you 
+  are in contact with the plasma tube. Those tubes run at thousands of volts (up 
+  to 48000 volts for some units) and this can damage the generator and is not 
+  covered by the warranty. Before touching the generator (including the keypad), 
+  make sure you are not in contact with the tube and discharge yourself of any 
+  static electricity buildup by touching a large metallic object.</p>
+</blockquote>
+
+
+<p>
+
+
+
+<b>Caution</b> Allow proper ventilation of generator.<br>
+
+
+</p>
+
+
+<blockquote>The generator will be warm to the touch under normal operation.
+This is expected and it is safe to operate it continuously even in summer heat in the shade. 
+Allow proper ventilation of generator. Keep the generator away from heat sources such as other electronic 
+equipment, heaters or direct sun light. Place the generator on a hard, flat, horizontal 
+and cool surface to allow clearance under the generator case and proper ventilation. 
+Do not block any holes in the generator such as the vent holes and LCD panel opening.
+Hot air inside the generator rises and escapes mainly via the top LCD opening so keep
+the generator horizontal with the LCD opening facing up and do not block the LCD opening.
+Do not remove the rubber feet under the generator case. Doing this will prevent air
+flow under the case and void the warranty.<br>
+</blockquote>
+
+
+
+<b>Caution</b> If making body contact with electrodes connected to
+the output of the generator.<br>
+
+
+<blockquote>If&nbsp; any part of your body is&nbsp; in contact with electrodes 
+connected to the output of the generator, make sure you
+discharge yourself of any static electricity buildup before touching
+the
+electrodes. This will avoid damaging the generator. You can discharge
+yourself&nbsp; by touching a large metallic object. Also make sure you
+always touch the negative electrode before touching the positive one.<br>
+</blockquote>
+
+
+USB cable connection on a PC: <br>
+
+
+<blockquote>Locate a free USB port
+on your computer. Connect the flat rectangular end of the provided USB cable 
+to the computer USB port. Connect the other (square) end of the USB cable
+connector to the frequency generator.
+Do not use an extension on this cable. The cable provided with
+your frequency generator is shielded and has RF filters.
+Adding an extension to this cable can cause the frequency generator to
+malfunction. <br>
+</blockquote>
+
+
+<br>
+
+
+Power transformer :<br>
+
+
+<blockquote>
+These frequency generators require a AC transformer in the 16 - 18VAC range with at least 1A capacity. A transformer
+is provided for North American markets. The power jack is 2.1mm. Before using any transformer
+other than the one supplied with your generator, you need to measure the open circuit voltage 
+output with a voltmeter set to volts AC. The open circuit voltage of the transformer must be
+between 17.5 and 19 Volts AC. <b>DO NOT USE A TRANSFORMER WITH OPEN CIRCUIT VOLTAGE GREATER 
+THAN 19 VOLTS AC</b>. Doing this can cause the frequency generator to over-heat, malfunction or be 
+damaged. Doing this will void the warranty. If you are not sure how to measure the open 
+circuit voltage, contact us before connecting the transformer to the generator.
+  
+</blockquote>
+<br>
+
+
+The
+frequency generator has an off/on switch. Turn the switch on (left)
+when in use. Do not turn off and on the
+generator while frequencies are running. If you do this, you need to
+stop program execution, turn on the generator and restart program
+execution. When controlling the generator from a PC, do not disconnect
+the USB cable while F100 is running or the generator is turned on (except
+if you are using the "Run stand-alone" command). This
+can cause the F100 software to hang. The frequency output is at BNC connectors
+1 and 2 by default and can be controlled with the "output" command <br>
+
+
+<br>
+<!----------------------------- SW install  ---------------------------- -->
+
+
+
+
+<a name="installSW"></a><br>
+
+
+<b><font size="+1">VIII Installing the Software</font><br>
+<br>
+</b>The latest software for your frequency generator can be
+downloaded from our web site (see bellow). 
+<br>
+
+
+<br>
+
+
+<b>Installing MS-Windows Software:</b> <br>
+
+
+<br>
+
+
+Do not connect the generator to the PC until you are done with steps 1 and 2 (bellow) of the 
+software installation.<br>
+
+<br>
+
+
+
+Step 1)  Install F100 software: <br>
+
+
+<blockquote>
+a)Download the latest F100 installation file from our web site at http://atelierrobin.net .  Click on the "Downloads" menu item on the left column and select the latest F100 software from the menu. Save and run the setup.exe file and follow the instructions to install F100. 
+<br> <br>
+b)Choose an installation directory
+when asked 
+</blockquote>
+
+
+
+
+Step 2)  Install USB driver: <br>
+
+<br>
+<blockquote>
+
+On some computers, the USB driver may  be already be installed. If the "New Hardware Wizard" does not come up the first time you connect the generator, the driver is probably already installed and you can skip this step.
+<br><br>
+
+
+
+When you connect the generator to your PC for the first time MS-Windows will open the
+"Welcome to the Found New Hardware Wizard" window to start installing the USB driver 
+for this new device. Note that on some slower PCs, this window can take up to 2 minutes to 
+appear. Wait until you see that window and then follow the instruction bellow:<br><br>
+            
+a) When you see the window entitled "Welcome to the Found New Hardware Wizard" select: 
+"Install from a list or specific location" and click the "Next" button.<br>
+
+   
+b) In the next window select: "Don't search, I will choose the driver to install" and
+click the "Next" button.<br>
+
+   
+c) In the next window, select "Have disk" and the "Browse" button. In the Browse window
+navigate to the usb directory located in the folder where you installed F100 (normaly this is c:\Program Files\usb) . Select the file ftdibus.inf 
+(or arbus.inf if you have not upgraded your USB firmware)
+in that directory.<br>
+
+
+d) In the next window, select "AtelierRobin FGen" and click the "Next" button.<br>
+
+
+e) If MS-Windows shows a window saying that this driver "has not passed Windows logo
+testing", click "continue anyway".<br>
+
+
+f) Click "Finish". You are now done with the installation of the USB driver.
+
+</blockquote>
+
+
+When you have completed steps 1 and 2 above, you can run f100 from the MS-Windows start menu
+
+<br>
+
+
+
+<br>
+
+
+<a name="firmwareUG"></a>
+<b>Upgrading the F100 Firmware:</b> <br>
+
+
+<blockquote> 
+
+Your frequency generator has an upgradable firmware file that is stored in permanent
+flash memory on the generator. From time to time we release on our web site new firmware 
+releases that contain new features and bug fixes. Here we describe the procedure to upgrade 
+the firmware on your generator. New firmware releases are numbered to uniquely identify them.
+When upgrading the firmware, you need to make sure you run the correct version of PC F100 software
+that matches the firmware. Firmware and PC F100 software come in matching pairs and you cannot 
+mix versions.<br><br>
+
+One way to make sure you do not mix firmware and PC software versions is to always upgrade the
+firmware following this procedure:<br><br>
+         
+1) Download the new release of F100 Software  from our web site<br>
+2) Install this new F100 software on your PC<br>
+3) Connect your generator to the PC with the USB cable<br>
+4) Turn on power to the generator<br>
+5) Start the newly installed PC F100 software<br>
+6) Select tools-&gt;Upgrade Firmware in the menu<br>
+7) Click OK when it asks if you are sure you want to upgrade<br>
+8) The upgrade procedure starts and takes approximately 30 seconds<br>
+   DO NOT TURN OFF THE PC OR GENERATOR UNTIL YOU SEE A MESSAGE SAYING THE UPGRADE IS DONE<br>
+9) When the upgrade is done, turn off the generator for 5 seconds, turn it back on<br>
+10) You are now ready to use the generator<br>
+<br>
+
+
+</blockquote>
+
+
+<b>Installing Mac OS X Software:</b> 
+<br>
+
+
+<blockquote>
+Mac OS X F100 software is available from our website in the Downloads section.<br><br>
+
+1) Download the macosx.zip file and open it <br>
+2) Install the FTDI USB-Serial driver. The instructions to install this driver are available 
+in the file FTDI_Drivers_Installation_Guide_for_MAC_OSX-1.pdf. 
+You do not need to download the driver from the FTDI web site 
+The driver is included in the MacOSX.zip you downloaded .<br>
+3) Drag the F100 folder from macosx.zip to your Applications folder.<br>
+4) Run F100 by double clicking F100 in the F100 folder in your applications folder.<br>
+  
+</blockquote>
+<!----------------------------- Errors ---------------------------- -->
+
+
+
+
+
+
+</body></html>
